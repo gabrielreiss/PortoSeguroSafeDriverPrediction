@@ -18,3 +18,10 @@ train.to_sql(   "train",
                 conn,
                 if_exists = 'replace'
                 )
+
+test = pd.read_csv( os.path.join( DATA_DIR, 'test.csv' ) )
+
+test.to_sql(   "test",
+                conn,
+                if_exists = 'replace'
+                )
