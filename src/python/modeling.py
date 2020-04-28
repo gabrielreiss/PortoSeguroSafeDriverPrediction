@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn import tree
 import matplotlib.pyplot as plt
+import pickle
 
 #localizar pastas no sistema
 BASE_DIR = 'C:\\Users\\SGG\\Google Drive\\Atuariais2\\python\\PortoSeguroSafeDriverPrediction'
@@ -12,6 +13,7 @@ DATA_DIR = os.path.join( BASE_DIR, 'data' )
 SRC_DIR = os.path.join( BASE_DIR, 'src' )
 PY_DIR = os.path.join( SRC_DIR, 'python' )
 SQL_DIR = os.path.join( SRC_DIR, 'sql' )
+MODELS_DIR = os.path.join( SRC_DIR, 'models' )
 
 #carregando os dados
 train = pd.read_csv( os.path.join( DATA_DIR, 'train.csv' ), nrows= 1000 )
@@ -57,6 +59,10 @@ importancia = importancia.sort_values(by='valores',
                                       ascending = False)
 
 #plot
-plt.barh(importancia.index, importancia.valores)
-plt.xlabel('Importância')
-plt.show()
+#plt.barh(importancia.index, importancia.valores)
+#plt.xlabel('Importância')
+#plt.show()
+
+
+with open(os.path.join( MODELS_DIR, 'model1.pkl' ), 'wb') as f:
+    pickle.dump(clf, f)
