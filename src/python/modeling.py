@@ -5,6 +5,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn import tree
 import matplotlib.pyplot as plt
 import pickle
+#import graphviz
 
 #localizar pastas no sistema
 BASE_DIR = 'C:\\Users\\SGG\\Google Drive\\Atuariais2\\python\\PortoSeguroSafeDriverPrediction'
@@ -63,6 +64,18 @@ importancia = importancia.sort_values(by='valores',
 #plt.xlabel('Importância')
 #plt.show()
 
+#with open(os.path.join( MODELS_DIR, 'model1.pkl' ), 'wb') as f:
+#    pickle.dump(clf, f)
 
-with open(os.path.join( MODELS_DIR, 'model1.pkl' ), 'wb') as f:
-    pickle.dump(clf, f)
+#dot_data = tree.export_graphviz(clf, out_file=None, 
+#                                feature_names=train[features].columns,  
+#                                class_names=train['target'].columns,  
+#                                filled=True, rounded=True,  
+#                                special_characters=True) 
+#graph = graphviz.Source(dot_data)
+#graph
+
+#tree.plot_tree(clf)
+#plt.savefig("tree.jpg",dpi=1000)
+
+
